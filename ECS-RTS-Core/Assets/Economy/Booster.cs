@@ -22,6 +22,6 @@ public struct Booster : IComponentData, IDeleteable
     private bool deleted;
 
     public Vector2Int position;
-    public Pair<ushort, float>[] effects;
+    public Pair<int, float>[] effects;
     public Func<float, float> effectMultiplier;
 }

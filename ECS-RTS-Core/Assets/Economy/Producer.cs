@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Unity.Entities;
 using UnityEngine;
 
-public struct Consumer : IComponentData, IDeleteable
+public class Producer : IComponentData, IDeleteable
 {
     public void Delete()
     {
@@ -21,6 +21,10 @@ public struct Consumer : IComponentData, IDeleteable
 
     private bool deleted;
 
+    public float speedCap;
+    public float logisticsPenilty;
     public Vector2Int position;
-    public Pair<ushort, float>[] resources;
+    public ResourceAmountSatisfactionGroupConsumer[] resources;
+    public Pair<ushort, float>[] productionBase;
+    public Pair<ushort, float>[] boosts;
 }

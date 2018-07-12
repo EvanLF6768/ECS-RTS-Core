@@ -13,8 +13,8 @@ public unsafe class FastList<T> where T : IDeleteable
 
     public T Next()
     {
-        current = current++ % Length;
-        return buffer[current];
+        Current = Current++ % Length;
+        return buffer[Current];
     }
 
     public T this[int index]
@@ -45,7 +45,7 @@ public unsafe class FastList<T> where T : IDeleteable
     }
 
     private T[] buffer;
-    private int current;
+    public int Current { get; private set }
     public int Length { get; private set; }
 }
 
@@ -53,12 +53,4 @@ public interface IDeleteable
 {
     void Delete();
     bool GetDeleted();
-}
-
-public class DeleteableStructReference<T> : IDeleteable where T : IDeleteable
-{
-    public void Delete() { Value.Delete(); }
-    public bool GetDeleted() { return Value.GetDeleted(); }
-
-    public T Value;
 }
