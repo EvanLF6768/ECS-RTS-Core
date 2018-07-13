@@ -7,24 +7,15 @@ using System.Threading.Tasks;
 using Unity.Entities;
 using UnityEngine;
 
-public class Producer : IComponentData, IDeleteable
+public class Producer : ISharedComponentData
 {
-    public void Delete()
-    {
-        deleted = true;
-    }
+    public string name;
+    public string description;
+    public Producer[] production;
+}
 
-    public bool GetDeleted()
-    {
-        return deleted;
-    }
-
-    private bool deleted;
-
-    public float speedCap;
-    public float logisticsPenilty;
-    public Vector2Int position;
-    public ResourceAmountSatisfactionGroupConsumer[] resources;
-    public Pair<ushort, float>[] productionBase;
-    public Pair<ushort, float>[] boosts;
+public struct ProducerInstance : IComponentData
+{
+    public Vector2 position;
+    public ResourceAmountPair[] customers;
 }

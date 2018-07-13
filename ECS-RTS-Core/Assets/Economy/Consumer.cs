@@ -6,21 +6,30 @@ using System.Threading.Tasks;
 
 using Unity.Entities;
 using UnityEngine;
+using Unity.Burst;
+using Unity.Collections;
 
-public class Consumer : IComponentData, IDeleteable
+public struct Consumer : ISharedComponentData
 {
-    public void Delete()
+    public string name;
+    public string description;
+    public ResourceAmountPair[] consumption;
+}
+
+public struct ConsumerInstance : IComponentData
+{
+    public Vector2 position;
+    public ResourceAmountPair[] suppliers;
+}
+
+[BurstCompile]
+public struct ConsumerInstanceUpdater : IJobProcessComponentData<Consumer, ConsumerInstance>
+{
+    public PlayerData player;
+    public GameState gameState;
+
+    public void Execute([ReadOnly] ref Consumer consumer, ref ConsumerInstance instance)
     {
-        deleted = true;
+        
     }
-
-    public bool GetDeleted()
-    {
-        return deleted;
-    }
-
-    private bool deleted;
-
-    public Vector2Int position;
-    public ResourceAmountSatisfactionGroupProducer[] resources;
 }

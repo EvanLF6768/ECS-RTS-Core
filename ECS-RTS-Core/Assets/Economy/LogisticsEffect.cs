@@ -4,9 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Unity.Entities;
-
-public struct GameState : IComponentData
+public class LogisticsEffect
 {
-    public TerrainTile[,] Terrain;
 }

@@ -7,19 +7,7 @@ using System.Threading.Tasks;
 using Unity.Entities;
 using UnityEngine;
 
-public struct TerrainTile : IComponentData
+public struct TerrainTile : ISharedComponentData
 {
-    [Serializable]
-    public class BaseTile : ScriptableObject
-    {
-        public Mesh mesh;
-        public Material material;
-        public float travelCost;
-    }
-
-    public enum VisionLevel { None, TerrianOnly, Silhouettes, Full }
-
-    public VisionLevel[] vision;
-    public ushort height;
-    public ushort tile;
+    public float travelCost;
 }
