@@ -39,6 +39,7 @@ public unsafe class WorkerSystem : ComponentSystem
                     if (e.workerInstance.currentJob.amount > 0)
                     {
                         e.workerInstance.currentState = WorkerInstance.WorkerState.MovingToExporter;
+                        e.navAgent.SetDestination((*e.workerInstance.currentJob.exporter).)
                         goto case WorkerInstance.WorkerState.MovingToExporter;
                     }
                     break;
