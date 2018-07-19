@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411010333fb04ec458ed79a8f45c4dd7, type: 3}
+  m_Name: Oil Well
+  m_EditorClassIdentifier: 
+  description: Creates Oil
+  productionAndCapacity:
+  - resource: {fileID: 11400000, guid: 1014b61a353b7e843b1be61da5fd83c9, type: 2}
+    vector2: {x: 0.2, y: 10}
+  entrance: {x: 4, y: 0, z: 0}
